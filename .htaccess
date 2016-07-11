@@ -1,0 +1,14 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{HTTP_HOST} .
+#Redirect 301 /test.local http://test.local/index.php
+RewriteRule ^(.*)$ /index.php?path=$1 [L]
+Options ALL -Indexes +FollowSymLinks
+# BEGIN WordPress
+
+
+
+ErrorDocument 404 http://test.local/views/404.html
+ErrorDocument 403 http://test.local/views/403.html
